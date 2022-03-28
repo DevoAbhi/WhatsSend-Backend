@@ -1,5 +1,6 @@
 const qrcode = require('qrcode-terminal');
 const fs = require('fs');
+const cron = require('node-cron');
 const { Client, LegacySessionAuth } = require('whatsapp-web.js');
 
 const SESSION_FILE_PATH = './session.json';
@@ -20,8 +21,18 @@ client.on('qr', qr => {
 
 client.on('ready', () => {
     console.log('Client is ready!');
+
     client.getChats().then(chats => {
-        console.log(chats[0]);
+        const contact = chats.find(chat =>
+            chat.name = "Rimpi"
+        )
+        cron.schedule('* * * * *', () => {
+            client.sendMessage(contact.id._serialized, "This is an automated msg!").then(res => {
+                console.log("Message was sent successfully");
+            }).catch(err => {
+                console.log("The error is: ", err);
+            });
+        })
     })
 });
 
