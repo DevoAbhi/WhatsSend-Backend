@@ -1,46 +1,55 @@
-const qrcode = require('qrcode-terminal');
-const fs = require('fs');
-const cron = require('node-cron');
-const { Client, LegacySessionAuth } = require('whatsapp-web.js');
+const app = require("./app");
+const debug = require("debug")("node-angular");
+const http = require("http");
 
-const SESSION_FILE_PATH = './session.json';
-let sessionData;
-if(fs.existsSync(SESSION_FILE_PATH)) {
-    sessionData = require(SESSION_FILE_PATH);
-}
 
-const client = new Client({
-    authStrategy: new LegacySessionAuth({
-        session: sessionData
-    })
+const normalizePort = val => {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+};
+
+const onError = error => {
+  if (error.syscall !== "listen") {
+    throw error;
+  }
+  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  switch (error.code) {
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
+      process.exit(1);
+      break;
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+};
+
+const onListening = () => {
+  const addr = server.address();
+  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  debug("Listening on " + bind);
+};
+
+const port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
+
+const server = http.createServer(app);
+server.on("error", onError);
+server.on("listening", onListening);
+server.listen(port, ()=> {
+  console.log("Server is listening!")
 });
-
-client.on('qr', qr => {
-    qrcode.generate(qr, {small: true});
-});
-
-client.on('ready', () => {
-    console.log('Client is ready!');
-
-    client.getChats().then(chats => {
-        const contact = chats.find(chat =>
-            chat.name = "Rimpi"
-        )
-        cron.schedule('* * * * *', () => {
-            client.sendMessage(contact.id._serialized, "This is an automated msg!").then(res => {
-                console.log("Message was sent successfully");
-            }).catch(err => {
-                console.log("The error is: ", err);
-            });
-        })
-    })
-});
-
-client.on('authenticated', (session) => {
-    sessionData = session;
-    fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), (err) => {
-        if(err) console.log(err);
-    })
-})
-
-client.initialize();
