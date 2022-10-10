@@ -85,10 +85,10 @@ Update the remote to point to your GitHub repository: `git remote set-url origin
 
 ```
 
-And run server
+And run start
 
 ```
-npm run server
+npm run start
 ```
 
 ## 🎈 Usage <a name="usage"></a>
