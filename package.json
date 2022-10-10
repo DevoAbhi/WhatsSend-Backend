@@ -2,11 +2,12 @@
   "name": "whatssend-backend",
   "version": "1.0.0",
   "description": "This is the backend of WhatsSend app.",
-  "main": "server.js",
+  "main": "script.js",
   "dependencies": {
     "body-parser": "^1.19.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "ffmpeg": "0.0.4",
     "mongoose": "^6.2.9",
     "node-cron": "^3.0.0",
     "node-schedule": "^2.1.0",
@@ -17,7 +18,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon script.js --ignore *.json"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
