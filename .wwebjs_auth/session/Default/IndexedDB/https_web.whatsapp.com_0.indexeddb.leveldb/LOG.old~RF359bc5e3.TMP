@@ -1,8 +1,0 @@
-2022/08/28-01:34:06.161 3914 Reusing MANIFEST E:\Full-Stack-Projects\WhatsSend-Backend\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/08/28-01:34:06.162 3914 Recovering log #474
-2022/08/28-01:34:06.277 3914 Reusing old log E:\Full-Stack-Projects\WhatsSend-Backend\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000474.log 
-2022/08/28-01:34:06.277 3914 Delete type=2 #473
-2022/08/28-01:34:06.277 3914 Delete type=2 #475
-2022/08/28-01:34:06.527 3914 Level-0 table #480: started
-2022/08/28-01:34:06.664 3914 Level-0 table #480: 1257712 bytes OK
-2022/08/28-01:34:06.700 3914 Delete type=0 #474
