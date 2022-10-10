@@ -1,10 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require("path");
-// const cors = require('cors');
+const cors = require('cors');
 
 const app = express();
-// app.use(cors());
+app.use(
+    cors({
+      origin: "*",
+    })
+);
 
 //route
 const whatsappRoute = require("./routes/whatsapp");
