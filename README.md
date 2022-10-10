@@ -21,8 +21,7 @@
 
 - [Problem Statement](#problem_statement)
 - [Idea / Solution](#idea)
-- [Dependencies / Limitations](#limitations)
-- [Future Scope](#future_scope)
+- [Dependencies ](#limitations)
 - [Setting up a local environment](#getting_started)
 - [Usage](#usage)
 - [Technology Stack](#tech_stack)
@@ -99,9 +98,9 @@ enter yourr messages and hit send
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Database
 - [Express](https://expressjs.com/) - Server Framework
 - [Html](https://html.org/) - Web Framework
+- [css](https://www.css.com/) - Style Sheeet
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
 ## ✍️ Authors <a name = "authors"></a>
