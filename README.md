@@ -3,10 +3,11 @@
 
 <div align="center">
 
-[![Hacktober](https://img.shields.io/badge/hackathon-name-orange.svg)](http://hackathon.url.com)
+[![Hacktober](https://img.shields.io/badge/hackatober-orange.svg)](http://hackatobar.com)
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/DevoAbhi/WhatsSend-Backend/The-Documentation-Compendium.svg)](https://github.com/DevoAbhi/WhatsSend-Backend/The-Documentation-Compendium/issues)
+[![GitHub Issues](https://img.shields.io/github/issues/DevoAbhi/WhatsSend-Backend/The-Documentation-Compendium.svg)](https://github.com/DevoAbhi/WhatsSend-Backend/The-Documentation-Compendium/issues) <br>
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/DevoAbhi/WhatsSend-Backend/The-Documentation-Compendium.svg)](https://github.com/DevoAbhi/WhatsSend-Backend/The-Documentation-Compendium/pulls)
+  ![Hacktobar](https://img.shields.io/github/hacktoberfest/2022/DevoAbhi/WhatsSend-Backend)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 </div>
