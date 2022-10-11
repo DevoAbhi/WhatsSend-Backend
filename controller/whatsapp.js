@@ -7,10 +7,6 @@ exports.whatsappFunc = async (req, res, next) => {
     const payload = req.body.payload;
     const time = req.body.time;
 
-    console.log("Backend -> ",payload.name);
-    console.log(time);
-
-    console.log("Hello");
     // Use the saved values
     const client = new Client({
         authStrategy: new LocalAuth()
