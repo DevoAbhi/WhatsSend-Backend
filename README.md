@@ -61,7 +61,6 @@ What things you need to install the software and how to install them.
 
 ```
 must have installed node js 
-must have mogongodb Cli installed 
 
 Move into your projects directory: `cd ~/YOUR_PROJECTS_DIRECTORY`
 Clone this repository: `git clone https://github.com/DevoAbhi/WhatsSend-Backend YOUR_PROJECT_NAME`
