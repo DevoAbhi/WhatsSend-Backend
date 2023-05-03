@@ -5,7 +5,10 @@ const schedule = require('node-schedule');
 exports.whatsappFunc = async (req, res, next) => {
     console.log(req.body);
     const payload = req.body.payload;
-    const time = req.body.time;
+    // const number = payload.number;
+    // const time = req.body.time;
+
+
 
     // Use the saved values
     const client = new Client();
@@ -27,24 +30,36 @@ exports.whatsappFunc = async (req, res, next) => {
 
     client.on('ready', async () => {
         console.log('Client is ready!');
-        const number = payload.number;
+        console.log(req.body);
+
+        const {number, msg, year, month, day, hour, min } = req.body;
         const sanitized_number = number.toString().replace(/[- )(]/g, "");
         const final_number = `91${sanitized_number.substring(sanitized_number.length - 10)}`;
 
-        const number_data = await client.getNumberId(final_number);
-        console.log("number_details: ", number_data);
+        try {
 
-        const date = new Date(time.year, time.month, time.day, time.hour, time.min, 0);
-        console.log(date);
+            const number_data = await client.getNumberId(final_number);
+            console.log("number_details: ", number_data);
 
-        const job = schedule.scheduleJob(date, async () => {
-            if (number_data) {
-                const sendMessageData = await client.sendMessage(number_data._serialized, payload.msg);
-                console.log(sendMessageData);
-            } else {
-                console.log(final_number, "Mobile number is not registered");
-            }
-        });
+            const date = new Date(year, month, day, hour, min, 0);
+            console.log(date);
+
+            const job = schedule.scheduleJob(date, async () => {
+                if (number_data) {
+                    try {
+                        const sendMessageData = await client.sendMessage(number_data._serialized, msg);
+                        console.log(sendMessageData);
+                    } catch (error) {
+                        console.log("Something went sending message  => ", error)
+                    }
+                } else {
+                    console.log(final_number, "Mobile number is not registered");
+                }
+            });
+        } catch (error) {
+            console.log("Something went wrong in number id  => ", error)
+        }
+
     });
 
     // Save session values to the file upon successful auth

@@ -4,17 +4,17 @@
   "description": "This is the backend of WhatsSend app.",
   "main": "script.js",
   "dependencies": {
-    "body-parser": "^1.19.2",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "ffmpeg": "0.0.4",
-    "mongoose": "^6.2.9",
-    "node-cron": "^3.0.0",
-    "node-schedule": "^2.1.0",
-    "nodemon": "^2.0.15",
+    "mongoose": "^6.11.0",
+    "node-cron": "^3.0.2",
+    "node-schedule": "^2.1.1",
+    "nodemon": "^2.0.22",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.17.1"
+    "whatsapp-web.js": "^1.19.5"
   },
   "devDependencies": {},
   "scripts": {
